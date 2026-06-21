@@ -286,6 +286,159 @@
         @apply rounded border border-border-soft px-[11px] py-1.5 font-mono text-[0.78rem] text-muted;
     }
 
+    .project-card {
+        @apply relative isolate min-h-[220px] overflow-hidden p-0 transition-[transform,border-color,box-shadow] duration-300;
+    }
+
+    .project-card-media {
+        @apply pointer-events-none absolute inset-0 overflow-hidden;
+    }
+
+    .project-card-media img {
+        @apply h-full w-full scale-105 object-cover opacity-100 transition-[opacity,transform] duration-500 ease-out;
+    }
+
+    .project-card-placeholder {
+        @apply flex h-full items-center justify-center bg-panel-soft opacity-40;
+    }
+
+    .project-card-placeholder span {
+        @apply text-[0.72rem] tracking-[0.14em] text-faint uppercase;
+    }
+
+    .project-card-grid {
+        @apply absolute inset-0 opacity-0 transition-opacity duration-500;
+        background-image:
+            linear-gradient(rgba(143, 190, 229, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(143, 190, 229, 0.1) 1px, transparent 1px);
+        background-size: 18px 18px;
+    }
+
+    .project-card-scan {
+        @apply absolute top-0 right-0 left-0 h-px bg-accent opacity-0;
+        box-shadow: 0 0 12px rgba(255, 138, 61, 0.55);
+        transform: translateY(-100%);
+    }
+
+    .project-card-body {
+        @apply relative z-10 flex h-full flex-col p-7;
+        background: linear-gradient(
+            180deg,
+            rgba(15, 38, 62, 0.72) 0%,
+            rgba(15, 38, 62, 0.94) 55%,
+            rgba(8, 23, 40, 0.98) 100%
+        );
+        transition: background 0.4s ease;
+    }
+
+    .project-card-meta {
+        @apply mb-3 flex items-center justify-between gap-3;
+    }
+
+    .project-card-signal {
+        @apply rounded border border-accent-line/50 bg-accent-soft px-2 py-0.5 text-[0.62rem] tracking-[0.12em] text-accent uppercase opacity-70 transition-opacity duration-300;
+    }
+
+    .project-card-title {
+        @apply mb-2 font-display font-semibold leading-snug text-ink;
+    }
+
+    .project-card-tech {
+        @apply mb-3.5 text-[0.78rem] text-faint;
+    }
+
+    .project-card-text {
+        @apply m-0 mt-auto text-[0.92rem] leading-relaxed text-muted;
+    }
+
+    .project-card--has-media:hover,
+    .project-card--has-media:focus-within {
+        @apply -translate-y-1;
+        box-shadow: 0 14px 40px rgba(8, 23, 40, 0.45);
+    }
+
+    .project-card--has-media:hover .project-card-media img,
+    .project-card--has-media:focus-within .project-card-media img {
+        @apply scale-100 opacity-100;
+    }
+
+    .project-card--has-media:hover .project-card-grid,
+    .project-card--has-media:focus-within .project-card-grid {
+        @apply opacity-100;
+    }
+
+    .project-card--has-media:hover .project-card-body,
+    .project-card--has-media:focus-within .project-card-body {
+        background: linear-gradient(
+            180deg,
+            rgba(8, 23, 40, 0.55) 0%,
+            rgba(8, 23, 40, 0.88) 48%,
+            rgba(8, 23, 40, 0.97) 100%
+        );
+    }
+
+    .project-card--has-media:hover .project-card-signal,
+    .project-card--has-media:focus-within .project-card-signal {
+        @apply opacity-100;
+    }
+
+    .project-card--has-media:hover .project-card-scan,
+    .project-card--has-media:focus-within .project-card-scan {
+        animation: project-scan 0.9s ease-out forwards;
+    }
+
+    @keyframes project-scan {
+        0% {
+            opacity: 0;
+            transform: translateY(-20%);
+        }
+        15% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(420%);
+        }
+    }
+
+    .project-thumb {
+        @apply relative aspect-[16/10] w-full overflow-hidden border border-border-soft bg-bg-deep;
+    }
+
+    .project-thumb img {
+        @apply h-full w-full object-cover;
+    }
+
+    .project-thumb--empty {
+        @apply flex items-center justify-center bg-panel;
+    }
+
+    .project-thumb-fallback {
+        @apply text-[0.72rem] tracking-[0.12em] text-faint uppercase;
+    }
+
+    .project-thumb--form {
+        @apply max-w-sm rounded-md;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .project-card--has-media:hover .project-card-media img,
+        .project-card--has-media:focus-within .project-card-media img {
+            @apply scale-100 opacity-[0.28];
+        }
+
+        .project-card--has-media:hover .project-card-scan,
+        .project-card--has-media:focus-within .project-card-scan {
+            animation: none;
+            @apply opacity-0;
+        }
+
+        .project-card--has-media:hover,
+        .project-card--has-media:focus-within {
+            @apply translate-y-0;
+        }
+    }
+
     .arch-line {
         fill: none;
         stroke: var(--color-accent-line);

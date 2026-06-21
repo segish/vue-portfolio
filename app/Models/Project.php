@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class Project extends Model
@@ -14,6 +15,7 @@ class Project extends Model
         'title',
         'slug',
         'tag',
+        'thumbnail',
         'tech_stack',
         'excerpt',
         'description',
@@ -35,10 +37,27 @@ class Project extends Model
                 $project->slug = Str::slug($project->title);
             }
         });
+
+        static::deleting(function (Project $project) {
+            static::deleteStoredThumbnail($project->thumbnail);
+        });
     }
 
     public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    public static function deleteStoredThumbnail(?string $thumbnail): void
+    {
+        if (blank($thumbnail) || str_starts_with($thumbnail, 'http')) {
+            return;
+        }
+
+        $path = str_replace('/storage/', '', $thumbnail);
+
+        if ($path && Storage::disk('public')->exists($path)) {
+            Storage::disk('public')->delete($path);
+        }
     }
 }

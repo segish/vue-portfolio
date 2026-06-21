@@ -30,6 +30,7 @@ class ProjectController extends Controller
     public function store(Request $request): JsonResponse
     {
         $data = $this->validated($request);
+        $data = $this->applyThumbnail($request, $data);
 
         $project = Project::create($data);
 
@@ -39,6 +40,7 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project): JsonResponse
     {
         $data = $this->validated($request, $project);
+        $data = $this->applyThumbnail($request, $data, $project);
 
         $project->update($data);
 
@@ -68,10 +70,40 @@ class ProjectController extends Controller
             'description' => ['required', 'string'],
             'featured' => ['sometimes', 'boolean'],
             'sort_order' => ['sometimes', 'integer', 'min:0'],
+            'thumbnail' => ['nullable', 'image', 'max:2048'],
+            'thumbnail_url' => ['nullable', 'url', 'max:500'],
+            'remove_thumbnail' => ['sometimes', 'boolean'],
         ]);
 
         if (blank($data['slug'] ?? null)) {
             $data['slug'] = Str::slug($data['title']);
+        }
+
+        unset($data['thumbnail'], $data['thumbnail_url'], $data['remove_thumbnail']);
+
+        return $data;
+    }
+
+    private function applyThumbnail(Request $request, array $data, ?Project $project = null): array
+    {
+        if ($request->boolean('remove_thumbnail')) {
+            Project::deleteStoredThumbnail($project?->thumbnail);
+            $data['thumbnail'] = null;
+
+            return $data;
+        }
+
+        if ($request->hasFile('thumbnail')) {
+            Project::deleteStoredThumbnail($project?->thumbnail);
+            $path = $request->file('thumbnail')->store('projects', 'public');
+            $data['thumbnail'] = '/storage/'.$path;
+
+            return $data;
+        }
+
+        if ($request->filled('thumbnail_url')) {
+            Project::deleteStoredThumbnail($project?->thumbnail);
+            $data['thumbnail'] = $request->input('thumbnail_url');
         }
 
         return $data;

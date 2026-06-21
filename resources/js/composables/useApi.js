@@ -3,13 +3,15 @@ function csrfToken() {
 }
 
 export async function apiFetch(url, options = {}) {
+    const isFormData = options.body instanceof FormData;
+
     const headers = {
         Accept: 'application/json',
         'X-CSRF-TOKEN': csrfToken(),
         ...options.headers,
     };
 
-    if (options.body && !headers['Content-Type']) {
+    if (options.body && !isFormData && !headers['Content-Type']) {
         headers['Content-Type'] = 'application/json';
     }
 

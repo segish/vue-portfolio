@@ -5,6 +5,7 @@ import ProjectForm from '../components/ProjectForm.vue';
 import { useProjects } from '../composables/useProjects';
 import { useAuth } from '../composables/useAuth';
 import { apiFetch } from '../composables/useApi';
+import { projectThumbnail } from '../composables/useProjectThumbnail';
 
 const router = useRouter();
 const { user, logout } = useAuth();
@@ -95,7 +96,12 @@ async function signOut() {
                     :key="project.id"
                     class="panel flex flex-wrap items-start justify-between gap-5"
                 >
-                    <div>
+                    <div class="flex min-w-0 flex-1 gap-4">
+                        <div class="project-thumb project-thumb--form w-28 shrink-0" :class="{ 'project-thumb--empty': !projectThumbnail(project) }">
+                            <img v-if="projectThumbnail(project)" :src="projectThumbnail(project)" :alt="project.title" />
+                            <span v-else class="project-thumb-fallback mono text-[0.6rem]">{{ project.tag }}</span>
+                        </div>
+                        <div class="min-w-0">
                         <span class="tag">{{ project.tag }}</span>
                         <h3 class="mb-1.5 text-[1.1rem]">{{ project.title }}</h3>
                         <p class="mono mb-2 text-[0.78rem] text-faint">/{{ project.slug }}</p>
@@ -106,6 +112,7 @@ async function signOut() {
                         >
                             Featured
                         </span>
+                        </div>
                     </div>
                     <div class="flex shrink-0 gap-2.5">
                         <button class="btn btn-outline" @click="startEdit(project)">Edit</button>
