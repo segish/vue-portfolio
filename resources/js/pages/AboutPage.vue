@@ -1,6 +1,6 @@
 <script setup>
-import { RouterLink } from 'vue-router';
-import RevealOnScroll from '../components/RevealOnScroll.vue';
+import { RouterLink } from "vue-router";
+import RevealOnScroll from "../components/RevealOnScroll.vue";
 </script>
 
 <template>
@@ -8,7 +8,10 @@ import RevealOnScroll from '../components/RevealOnScroll.vue';
         <div class="wrap">
             <p class="eyebrow">About</p>
             <h1>Tsega Tigneh</h1>
-            <p class="lede">Backend-leaning full-stack developer, based in Addis Ababa, Ethiopia.</p>
+            <p class="lede">
+                Backend-leaning full-stack developer, based in Addis Ababa,
+                Ethiopia.
+            </p>
         </div>
     </header>
 
@@ -17,29 +20,34 @@ import RevealOnScroll from '../components/RevealOnScroll.vue';
             <RevealOnScroll>
                 <div>
                     <p class="mb-[18px] text-muted">
-                        I'm a developer who ended up on the backend by preference, not by accident. I like
-                        the part of a project where you're deciding how data should actually be shaped,
-                        not just how it should look on a screen. Most of my work is in Laravel and Node,
-                        with MySQL or MongoDB underneath, deployed to a VPS I've usually set up myself.
+                        I’m a developer who naturally gravitated toward backend
+                        work. I enjoy shaping how systems behave under the hood
+                        more than focusing on visual layers. Most of my
+                        experience is with Laravel and Node.js, backed by MySQL
+                        or MongoDB, usually deployed on VPS environments I
+                        configure and manage myself.
                     </p>
                     <p class="mb-[18px] text-muted">
-                        Right now a lot of that work is integration-heavy: connecting a Laravel pharmacy
-                        system to a government e-invoicing platform, cleaning and migrating thousands of
-                        real patient records, that kind of thing. I'm also involved in interviewing
-                        developers for a team building Laravel and Blade systems across inventory,
-                        clinical, hospital, and project-management software, which has been a useful way
-                        to see how other people approach the same kinds of problems.
+                        I’ve worked on a mix of real-world systems, including
+                        e-commerce platforms, inventory tools, and internal
+                        business applications. My focus is usually on building
+                        stable APIs, clean data flow, and making sure different
+                        parts of a system actually talk to each other without
+                        friction.
                     </p>
                     <p class="mb-[18px] text-muted">
-                        Outside of code, I've spent time volunteering in rural Ethiopia, doing actual
-                        farm work alongside farmers, digging and plowing rather than just showing up to
-                        observe. It's a different kind of problem-solving, but the same instinct applies:
-                        understand how the thing actually works before you try to improve it.
+                        Outside of client and team work, I’ve also built
+                        personal and academic projects that pushed me into areas
+                        like machine learning, real-time systems, and hardware
+                        integration. My final year project combined AI-based
+                        vehicle detection with Arduino-based traffic control,
+                        which gave me experience working across software and
+                        hardware together.
                     </p>
-                    <p class="m-0 text-muted">
-                        Looking ahead, I'm working toward a master's in Computer Science or Software
-                        Engineering in the US. The plan is to keep building in the meantime, not pause
-                        and wait for it.
+                    <p class="mb-[18px] text-muted">
+                        I’m always looking for new challenges and opportunities
+                        to grow as a developer. I’m open to full-time positions,
+                        freelance work, or remote opportunities.
                     </p>
                 </div>
             </RevealOnScroll>
@@ -50,34 +58,51 @@ import RevealOnScroll from '../components/RevealOnScroll.vue';
                     <div class="timeline">
                         <div class="tl-item">
                             <div class="tl-label">Foundations</div>
-                            <h3 class="mb-1.5 text-[1.05rem]">Internships &amp; training</h3>
+                            <h3 class="mb-1.5 text-[1.05rem]">
+                                Internships & training
+                            </h3>
                             <p class="m-0 text-[0.95rem] text-muted">
-                                Two internships in full-stack and general web development, alongside
-                                job-readiness training certified by Dereja.
+                                Started with two internships in full-stack web
+                                development, gaining hands-on experience
+                                building and deploying real applications.
                             </p>
                         </div>
+
                         <div class="tl-item">
-                            <div class="tl-label">Graduation project</div>
-                            <h3 class="mb-1.5 text-[1.05rem]">Adaptive traffic light control</h3>
+                            <div class="tl-label">Final year project</div>
+                            <h3 class="mb-1.5 text-[1.05rem]">
+                                AI-based traffic control system
+                            </h3>
                             <p class="m-0 text-[0.95rem] text-muted">
-                                Real-time, density-based signal timing using OpenCV and Arduino. My first real
-                                taste of software that has to work against a physical, moving problem.
+                                Built a real-time traffic light control system
+                                that used AI and computer vision to measure
+                                traffic density and dynamically control signals.
                             </p>
                         </div>
+
                         <div class="tl-item">
-                            <div class="tl-label">Into production</div>
-                            <h3 class="mb-1.5 text-[1.05rem]">VPS deployment &amp; CI/CD</h3>
+                            <div class="tl-label">Software Developer</div>
+                            <h3 class="mb-1.5 text-[1.05rem]">
+                                YAT Business Group
+                            </h3>
                             <p class="m-0 text-[0.95rem] text-muted">
-                                Shipped an e-learning platform with a proper Jenkins pipeline, automated
-                                deploys included. The work was recognized with an NVIDIA Jetson Nano.
+                                Developed and maintained the company's digital
+                                presence, delivering business websites and
+                                supporting features that showcased the
+                                organization's services and products.
                             </p>
                         </div>
+
                         <div class="tl-item">
-                            <div class="tl-label">Now</div>
-                            <h3 class="mb-1.5 text-[1.05rem]">Integrations &amp; bigger systems</h3>
+                            <div class="tl-label">Current role</div>
+                            <h3 class="mb-1.5 text-[1.05rem]">
+                                Keradion Technology
+                            </h3>
                             <p class="m-0 text-[0.95rem] text-muted">
-                                Government e-invoicing integration, large-scale data migration, and helping
-                                hire the next people to work on this kind of thing.
+                                Developing business systems and integrations
+                                across inventory, clinical, production, ERP, HR,
+                                project management and other business systems, while supporting
+                                large-scale data migration initiatives.
                             </p>
                         </div>
                     </div>
@@ -89,9 +114,15 @@ import RevealOnScroll from '../components/RevealOnScroll.vue';
     <section class="section-tight">
         <div class="wrap">
             <RevealOnScroll>
-                <div class="panel flex flex-wrap items-center justify-between gap-5 p-[34px]">
-                    <h2 class="text-[1.4rem]">Want the longer version, or a résumé?</h2>
-                    <RouterLink to="/contact" class="btn btn-primary">Reach Out →</RouterLink>
+                <div
+                    class="panel flex flex-wrap items-center justify-between gap-5 p-[34px]"
+                >
+                    <h2 class="text-[1.4rem]">
+                        Want the longer version, or a résumé?
+                    </h2>
+                    <RouterLink to="/contact" class="btn btn-primary"
+                        >Reach Out →</RouterLink
+                    >
                 </div>
             </RevealOnScroll>
         </div>
