@@ -57,7 +57,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="term reveal">
+    <div class="term">
         <div class="term-bar"><span></span><span></span><span></span></div>
         <div ref="container" class="term-body"></div>
     </div>

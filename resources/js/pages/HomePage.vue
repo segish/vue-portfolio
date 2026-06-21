@@ -13,6 +13,8 @@ const terminalLines = [
     { prompt: '>', text: 'Tsega Tigneh — backend developer, Addis Ababa', out: true },
     { prompt: '$', text: 'stack --primary', out: false },
     { prompt: '>', text: 'Laravel · Node.js · MySQL · MongoDB', out: true },
+    { prompt: '$', text: 'stack --secondary', out: false },
+    { prompt: '>', text: 'Vue.js · Next.js · React.js · Tailwind', out: true },
     { prompt: '$', text: 'status', out: false },
     { prompt: '>', text: 'open to new projects', out: true },
 ];
@@ -38,7 +40,9 @@ onMounted(() => fetchProjects(true));
                     <RouterLink to="/contact" class="btn btn-outline">Get in Touch</RouterLink>
                 </div>
             </div>
-            <Terminal :lines="terminalLines" />
+            <RevealOnScroll>
+                <Terminal :lines="terminalLines" />
+            </RevealOnScroll>
         </div>
     </header>
 
@@ -59,15 +63,14 @@ onMounted(() => fetchProjects(true));
                         <span class="tag">INTEGRATE</span>
                         <h3 class="mb-2.5 text-[1.2rem]">Integrations</h3>
                         <p class="m-0 text-[0.95rem] text-muted">
-                            Wiring internal systems to external ones, like connecting a pharmacy POS to a
-                            government e-invoicing platform and keeping it reliable.
+                            Wiring internal systems to external ones, RESTful APIs, Webhooks, and more.
                         </p>
                     </div>
                     <div class="panel">
                         <span class="tag">OPS</span>
                         <h3 class="mb-2.5 text-[1.2rem]">Infrastructure</h3>
                         <p class="m-0 text-[0.95rem] text-muted">
-                            VPS deployment, Nginx, CI/CD with Jenkins and GitHub Actions. The unglamorous
+                            VPS deployment, Nginx, Apache, Cloudflare, CI/CD with Jenkins and GitHub Actions. The unglamorous
                             part that decides whether things stay up.
                         </p>
                     </div>

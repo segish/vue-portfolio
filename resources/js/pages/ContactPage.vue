@@ -49,7 +49,9 @@ const terminalLines = [
                 </div>
             </RevealOnScroll>
 
-            <Terminal :lines="terminalLines" />
+            <RevealOnScroll>
+                <Terminal :lines="terminalLines" />
+            </RevealOnScroll>
         </div>
     </section>
 </template>
