@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Tsega Tigneh</title>
+<meta name="description" content="Selected backend, integration, and infrastructure projects by Tsega Tigneh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="mark">TT</span> Tsega Tigneh</a>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Selected work</p>
+    <h1>Systems I've designed, built, or pulled back from the edge.</h1>
+    <p class="lede">A mix of production integrations, data work, infrastructure, and one
+      project that runs on hardware instead of a server. Most of it is backend-first,
+      even when there's a frontend attached.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="grid grid-2 reveal">
+
+      <div class="panel" id="eims">
+        <span class="tag">INTEGRATION</span>
+        <h3 style="font-size:1.25rem; margin-bottom:6px;">EIMS Invoice Integration</h3>
+        <p class="mono" style="font-size:0.78rem; color:var(--text-faint); margin-bottom:14px;">Laravel · MySQL · Ministry of Revenue e-invoicing API</p>
+        <p style="color:var(--text-muted); margin:0;">
+          A pharmacy and point-of-sale system built on Laravel, wired into Ethiopia's
+          Electronic Invoice Management System so every sale reports correctly to the
+          Ministry of Revenue. The hard part wasn't the API call, it was getting the
+          architecture documented clearly enough that the rest of the team could work with it,
+          which meant producing proper technical diagrams of how the zones of the system talk to each other.
+        </p>
+      </div>
+
+      <div class="panel" id="registry">
+        <span class="tag">DATA</span>
+        <h3 style="font-size:1.25rem; margin-bottom:6px;">Clinic Patient Registry Migration</h3>
+        <p class="mono" style="font-size:0.78rem; color:var(--text-faint); margin-bottom:14px;">PHP · MySQL · data cleaning</p>
+        <p style="color:var(--text-muted); margin:0;">
+          Processed close to 9,400 patient records for a specialized eye clinic. That meant
+          converting dates between the Ethiopian and Gregorian calendars, computing birth
+          dates from registration dates and recorded age, and handling the edge case where
+          an infant's age is recorded in months rather than years.
+        </p>
+      </div>
+
+      <div class="panel">
+        <span class="tag">DEVOPS</span>
+        <h3 style="font-size:1.25rem; margin-bottom:6px;">E-Learning Platform Deployment</h3>
+        <p class="mono" style="font-size:0.78rem; color:var(--text-faint); margin-bottom:14px;">VPS · Nginx · Jenkins · CI/CD</p>
+        <p style="color:var(--text-muted); margin:0;">
+          Took an e-learning site from local development to a VPS with a real CI/CD pipeline,
+          automatic deploys on every push through Jenkins. It took a lot of trial and error
+          to get the pipeline reliable, and the work ended up earning an NVIDIA Jetson Nano
+          as recognition.
+        </p>
+      </div>
+
+      <div class="panel" id="traffic">
+        <span class="tag">ML / HARDWARE</span>
+        <h3 style="font-size:1.25rem; margin-bottom:6px;">Adaptive Traffic Light Control</h3>
+        <p class="mono" style="font-size:0.78rem; color:var(--text-faint); margin-bottom:14px;">Python · OpenCV · Arduino · ML</p>
+        <p style="color:var(--text-muted); margin:0;">
+          My graduation project. A real-time traffic light controller that adjusts signal
+          timing based on actual vehicle density, using OpenCV to count vehicles from video
+          and an Arduino to control the lights. Less about the algorithm, more about getting
+          software and hardware to agree with each other in real time.
+        </p>
+      </div>
+
+      <div class="panel">
+        <span class="tag">FULL-STACK</span>
+        <h3 style="font-size:1.25rem; margin-bottom:6px;">Multi-Vendor E-Commerce Platform</h3>
+        <p class="mono" style="font-size:0.78rem; color:var(--text-faint); margin-bottom:14px;">Laravel · MySQL · Blade</p>
+        <p style="color:var(--text-muted); margin:0;">
+          A Laravel e-commerce system supporting multiple vendors with hierarchical product
+          categories, built so the catalog structure could grow without turning into a mess
+          of one-off exceptions.
+        </p>
+      </div>
+
+      <div class="panel">
+        <span class="tag">FULL-STACK</span>
+        <h3 style="font-size:1.25rem; margin-bottom:6px;">Shebar Laundry Management System</h3>
+        <p class="mono" style="font-size:0.78rem; color:var(--text-faint); margin-bottom:14px;">Laravel · MySQL</p>
+        <p style="color:var(--text-muted); margin:0;">
+          A system for laundry businesses to track orders and customers from drop-off through
+          to pickup, built with the same backend-first approach as the rest of my work, the
+          data model comes first, the screens follow.
+        </p>
+      </div>
+
+      <div class="panel">
+        <span class="tag">FULL-STACK</span>
+        <h3 style="font-size:1.25rem; margin-bottom:6px;">Kerat Event Management</h3>
+        <p class="mono" style="font-size:0.78rem; color:var(--text-faint); margin-bottom:14px;">Laravel · MySQL</p>
+        <p style="color:var(--text-muted); margin:0;">
+          A website for managing event listings and bookings end to end, another project
+          where the backend does most of the heavy lifting and the frontend stays out of its way.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="panel reveal">
+      <p class="eyebrow" style="margin-bottom:14px;">Field notes</p>
+      <h3 style="font-size:1.2rem; margin-bottom:12px;">When a deploy goes wrong</h3>
+      <p style="color:var(--text-muted); margin:0;">
+        A `git reset --hard` on a production cPanel server once overwrote a multi-vendor
+        e-commerce project with the wrong repository entirely. No backup, just a server that
+        suddenly looked like a different project. Recovery meant digging through the reflog
+        to find the lost commits and re-cloning the correct history from the team's GitHub
+        organization. Nothing was lost in the end, but it's the kind of incident that changes
+        how carefully you treat a production server afterward.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Addis Ababa, Ethiopia // © 2026 Tsega Tigneh</span>
+    <span>
+      <a href="contact.html">Email</a>
+      <a href="contact.html">GitHub</a>
+      <a href="contact.html">LinkedIn</a>
+    </span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
