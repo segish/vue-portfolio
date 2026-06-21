@@ -95,8 +95,17 @@ class ProjectController extends Controller
 
         if ($request->hasFile('thumbnail')) {
             Project::deleteStoredThumbnail($project?->thumbnail);
-            $path = $request->file('thumbnail')->store('projects', 'public');
-            $data['thumbnail'] = '/storage/'.$path;
+
+            $uploadDir = public_path('uploads/projects');
+            if (! is_dir($uploadDir)) {
+                mkdir($uploadDir, 0755, true);
+            }
+
+            $file = $request->file('thumbnail');
+            $filename = Str::uuid().'.'.$file->getClientOriginalExtension();
+            $file->move($uploadDir, $filename);
+
+            $data['thumbnail'] = '/uploads/projects/'.$filename;
 
             return $data;
         }

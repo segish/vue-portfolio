@@ -11,6 +11,8 @@ class Project extends Model
 {
     use HasFactory;
 
+    public const THUMBNAIL_UPLOAD_DIR = 'uploads/projects';
+
     protected $fillable = [
         'title',
         'slug',
@@ -54,10 +56,23 @@ class Project extends Model
             return;
         }
 
-        $path = str_replace('/storage/', '', $thumbnail);
+        $path = ltrim(parse_url($thumbnail, PHP_URL_PATH) ?? $thumbnail, '/');
 
-        if ($path && Storage::disk('public')->exists($path)) {
-            Storage::disk('public')->delete($path);
+        if (str_starts_with($path, self::THUMBNAIL_UPLOAD_DIR.'/')) {
+            $fullPath = public_path($path);
+
+            if (is_file($fullPath)) {
+                unlink($fullPath);
+            }
+
+            return;
+        }
+
+        // Legacy thumbnails saved under storage symlink
+        $legacyPath = str_replace('storage/', '', $path);
+
+        if ($legacyPath && Storage::disk('public')->exists($legacyPath)) {
+            Storage::disk('public')->delete($legacyPath);
         }
     }
 }
