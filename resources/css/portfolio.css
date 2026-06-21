@@ -106,7 +106,7 @@
     }
 
     .page-head {
-        @apply border-b border-border-soft pt-[150px] pb-14 max-md:pt-[130px];
+        @apply border-b border-border-soft pt-[150px] pb-0 max-md:pt-[130px];
     }
 
     .page-head h1 {

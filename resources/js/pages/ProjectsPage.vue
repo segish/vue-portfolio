@@ -13,11 +13,10 @@ onMounted(() => fetchProjects());
     <header class="page-head">
         <div class="wrap">
             <p class="eyebrow">Selected work</p>
-            <h1>Systems I've designed, built, or pulled back from the edge.</h1>
+            <h1>Systems I’ve built and contributed to.</h1>
             <p class="lede">
-                A mix of production integrations, data work, infrastructure, and one
-                project that runs on hardware instead of a server. Most of it is backend-first,
-                even when there's a frontend attached.
+                Backend systems, integrations, data pipelines, and infrastructure work. 
+                Most projects are backend-focused with supporting frontend layers where needed.
             </p>
         </div>
     </header>
@@ -44,14 +43,12 @@ onMounted(() => fetchProjects());
             <RevealOnScroll>
                 <div class="panel">
                     <p class="eyebrow mb-3.5">Field notes</p>
-                    <h3 class="mb-3 text-[1.2rem]">When a deploy goes wrong</h3>
+                    <h3 class="mb-3 text-[1.2rem]">What ties it all together</h3>
                     <p class="m-0 text-muted">
-                        A `git reset --hard` on a production cPanel server once overwrote a multi-vendor
-                        e-commerce project with the wrong repository entirely. No backup, just a server that
-                        suddenly looked like a different project. Recovery meant digging through the reflog
-                        to find the lost commits and re-cloning the correct history from the team's GitHub
-                        organization. Nothing was lost in the end, but it's the kind of incident that changes
-                        how carefully you treat a production server afterward.
+                        Across these projects, I focus on building backend-heavy 
+                        systems that are reliable, maintainable, and production-ready. 
+                        Most work includes APIs, integrations, and deployment setups that 
+                        connect real systems together.
                     </p>
                 </div>
             </RevealOnScroll>

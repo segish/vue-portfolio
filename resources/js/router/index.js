@@ -6,6 +6,7 @@ import AboutPage from '../pages/AboutPage.vue';
 import ContactPage from '../pages/ContactPage.vue';
 import LoginPage from '../pages/LoginPage.vue';
 import AdminProjectsPage from '../pages/AdminProjectsPage.vue';
+import NotFoundPage from '../pages/NotFoundPage.vue';
 import { useAuth } from '../composables/useAuth';
 
 const routes = [
@@ -20,6 +21,12 @@ const routes = [
         name: 'admin-projects',
         component: AdminProjectsPage,
         meta: { title: 'Manage Projects', requiresAuth: true },
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'not-found',
+        component: NotFoundPage,
+        meta: { title: 'Page Not Found' },
     },
 ];
 
